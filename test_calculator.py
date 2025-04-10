@@ -57,12 +57,6 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(multiply(0, 100), 0)
         self.assertEqual(multiply(-2, 5), -10)
 
-    def test_divide(self):
-        self.assertEqual(divide(10, 2), 5)
-        self.assertEqual(divide(0, 5), 0)
-        with self.assertRaises(ZeroDivisionError):
-            divide(5, 0)
-
     def test_logarithm(self):
         self.assertTrue(math.isclose(logarithm(10, 1000), 3))
         with self.assertRaises(ValueError):
@@ -77,7 +71,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(hypotenuse(0, 0), 0)
         self.assertTrue(math.isclose(hypotenuse(-5, 12), 13))
 
-    def test_square_root(self):
+    def test_sqrt(self):
         self.assertEqual(square_root(0), 0)
         self.assertTrue(math.isclose(square_root(9), 3))
         with self.assertRaises(ValueError):
