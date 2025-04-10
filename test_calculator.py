@@ -99,6 +99,13 @@ class TestCalculator(unittest.TestCase):
             divide(5, 0)
 
     def test_log_invalid_argument(self):
+        self.assertTrue(math.isclose(logarithm(10, 1000), 3))
+        with self.assertRaises(ValueError):
+            logarithm(1, 100)  # base = 1 not allowed
+        with self.assertRaises(ValueError):
+            logarithm(-2, 100)
+        with self.assertRaises(ValueError):
+            logarithm(2, -100)
         
 
 if __name__ == "__main__":
