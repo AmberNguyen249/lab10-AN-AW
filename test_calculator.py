@@ -7,11 +7,12 @@ from calculator import *
 
 class TestCalculator(unittest.TestCase):
     ######### Partner 2
-    # def test_add(self): # 3 assertions
-    #     fill in code
+   
+    def add(a, b):
+        return a + b
 
-    # def test_subtract(self): # 3 assertions
-    #     fill in code
+    def subtract(a, b):
+        return a - b
     # ##########################
 
     ######## Partner 1
@@ -23,19 +24,33 @@ class TestCalculator(unittest.TestCase):
     # ##########################
 
     ######## Partner 2
-    # def test_divide_by_zero(self): # 1 assertion
-    #     # call division function inside, example:
-    #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
-    #     #     div(0, 5)
-    #     fill in code
+     def divide(a, b):
+        try:
+            if a == 0:
+                raise ZeroDivisionError("Cannot divide by zero.")
+            return b / a
+        except ZeroDivisionError as e:
+            print(f"Error in divide: {e}")
+            with self.assertRaises(ZerroDivisionError):
+                div(0, 5)
 
-    # def test_logarithm(self): # 3 assertions
-    #     fill in code
+     def logarithm(a, b):
+        if a <= 0 or a == 1:
+            raise ValueError("Logarithm base must be positive and not equal to 1.")
+        if b <= 0:
+            raise ValueError("Logarithm argument must be positive.")
+        return math.log(b, a)
 
-    # def test_log_invalid_base(self): # 1 assertion
-    #     # use same technique from test_divide_by_zero
-    #     fill in code
-    # ##########################
+    def logarithm(a, b):
+        try:
+            if a <= 0 or a == 1:
+                raise ValueError("Logarithm base must be positive and not equal to 1.")
+            if b <= 0:
+                raise ValueError("Logarithm argument must be positive.")
+            return math.log(b, a)
+        except ValueError as e:
+            print(f"Error in logarithm: {e}")
+            raise
     
     ######## Partner 1
 
