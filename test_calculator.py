@@ -1,8 +1,9 @@
-import unittest
-from calculator import *
 #https://github.com/AmberNguyen249/lab10-AN-AW.git
 #Partner 1:Amber Nguyen
 #Partner 2:Aster Wang
+import unittest
+from calculator import *
+
 
 class TestCalculator(unittest.TestCase):
     ######### Partner 2
@@ -37,8 +38,6 @@ class TestCalculator(unittest.TestCase):
     # ##########################
     
     ######## Partner 1
-    import unittest
-
 
     class TestMathFunctions(unittest.TestCase):
 
