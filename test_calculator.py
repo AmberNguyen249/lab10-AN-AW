@@ -15,17 +15,17 @@ class TestCalculator(unittest.TestCase):
         return a - b
     # ##########################
 
-   def mul(a, b):
-    return a * b
+    def mul(a, b):
+        return a * b
 
-def div(a, b):
-    try:
-        if a == 0:
-            raise ZeroDivisionError("Cannot divide by zero.")
-        return b / a
-    except ZeroDivisionError as e:
-        print(f"Error in divide: {e}")
-        raise
+    def div(a, b):
+        try:
+            if a == 0:
+                raise ZeroDivisionError("Cannot divide by zero.")
+            return b / a
+        except ZeroDivisionError as e:
+            print(f"Error in divide: {e}")
+            raise
     # ##########################
 
     ######## Partner 2
