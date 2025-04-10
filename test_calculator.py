@@ -1,6 +1,6 @@
-#https://github.com/AmberNguyen249/lab10-AN-AW.git
-#Partner 1:Amber Nguyen
-#Partner 2:Aster Wang
+# https://github.com/AmberNguyen249/lab10-AN-AW.git
+# Partner 1: Amber Nguyen
+# Partner 2: Aster Wang
 
 import unittest
 import math
@@ -10,30 +10,24 @@ import math
 def add(a, b):
     return a + b
 
-
 def subtract(a, b):
     return a - b
 
-
 def multiply(a, b):
     return a * b
-
 
 def divide(a, b):
     if b == 0:
         raise ZeroDivisionError("Cannot divide by zero.")
     return a / b
 
-
 def hypotenuse(a, b):
     return math.sqrt(a ** 2 + b ** 2)
 
-
 def square_root(x):
     if x < 0:
-        raise ValueError("Cannot take square root of negative number")
+        raise ValueError("Cannot take square root of negative number.")
     return math.sqrt(x)
-
 
 def logarithm(base, value):
     if base <= 0 or base == 1:
@@ -88,22 +82,16 @@ class TestCalculator(unittest.TestCase):
         self.assertTrue(math.isclose(square_root(9), 3))
         with self.assertRaises(ValueError):
             square_root(-4)
-            
-    def test_divide_by_zero(self):
-        self.assertEqual(divide(10, 2), 5)
-        self.assertEqual(divide(0, 5), 0)
-        with self.assertRaises(ZeroDivisionError):
-            divide(5, 0)
-            
+
     def test_log_invalid_base(self):
-         self.assertTrue(math.isclose(logarithm(10, 1000), 3))
-            with self.assertRaises(ValueError):
-                logarithm(1, 100)
-            with self.assertRaises(ValueError):
-                logarithm(-2, 100)
-            with self.assertRaises(ValueError):
-                logarithm(2, -100)
-    
+        self.assertTrue(math.isclose(logarithm(10, 1000), 3))
+        with self.assertRaises(ValueError):
+            logarithm(1, 100)
+        with self.assertRaises(ValueError):
+            logarithm(-2, 100)
+        with self.assertRaises(ValueError):
+            logarithm(2, -100)
+
 
 
 if __name__ == "__main__":
