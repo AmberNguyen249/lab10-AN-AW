@@ -92,7 +92,14 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             logarithm(2, -100)
 
+    def test_divide_by_zero(self):
+        self.assertEqual(divide(10, 2), 5)
+        self.assertEqual(divide(0, 5), 0)
+        with self.assertRaises(ZeroDivisionError):
+            divide(5, 0)
 
+    def test_log_invalid_argument(self):
+        
 
 if __name__ == "__main__":
     unittest.main()
