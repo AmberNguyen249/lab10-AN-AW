@@ -56,6 +56,11 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(multiply(3, 4), 12)
         self.assertEqual(multiply(0, 100), 0)
         self.assertEqual(multiply(-2, 5), -10)
+    def test_divide(self):
+        self.assertEqual(divide(10, 2), 5)
+        self.assertEqual(divide(0, 5), 0)
+        with self.assertRaises(ZeroDivisionError):
+            divide(5, 0)
 
     def test_logarithm(self):
         self.assertTrue(math.isclose(logarithm(10, 1000), 3))
