@@ -15,12 +15,17 @@ class TestCalculator(unittest.TestCase):
         return a - b
     # ##########################
 
-    ######## Partner 1
-    # def test_multiply(self): # 3 assertions
-    #     fill in code
+   def mul(a, b):
+    return a * b
 
-    # def test_divide(self): # 3 assertions
-    #     fill in code
+def div(a, b):
+    try:
+        if a == 0:
+            raise ZeroDivisionError("Cannot divide by zero.")
+        return b / a
+    except ZeroDivisionError as e:
+        print(f"Error in divide: {e}")
+        raise
     # ##########################
 
     ######## Partner 2
