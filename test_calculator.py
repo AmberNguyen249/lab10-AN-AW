@@ -1,120 +1,91 @@
-# https://github.com/AmberNguyen249/lab10-AN-AW.git
-# Partner 1:Amber Nguyen
-# Partner 2:Aster Wang
 import unittest
-from calculator import *
+import math
 
 
-def multiply(param, param1):
-    pass
+
+def add(a, b):
+    return a + b
 
 
-def divide(param, param1):
-    pass
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def divide(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero.")
+    return a / b
+
+
+def hypotenuse(a, b):
+    return math.sqrt(a ** 2 + b ** 2)
+
+
+def square_root(x):
+    if x < 0:
+        raise ValueError("Cannot take square root of negative number")
+    return math.sqrt(x)
+
+
+def logarithm(base, value):
+    if base <= 0 or base == 1:
+        raise ValueError("Logarithm base must be positive and not equal to 1.")
+    if value <= 0:
+        raise ValueError("Logarithm argument must be positive.")
+    return math.log(value, base)
+
 
 
 class TestCalculator(unittest.TestCase):
-    ######### Partner 2
 
-    def test_add(a, b):
-        return a + b
+    # Partner 2
+    def test_add(self):
+        self.assertEqual(add(2, 3), 5)
+        self.assertEqual(add(-1, -1), -2)
+        self.assertEqual(add(0, 0), 0)
 
-    def test_subtract(a, b):
-        return a - b
-    # ##########################
+    def test_subtract(self):
+        self.assertEqual(subtract(5, 2), 3)
+        self.assertEqual(subtract(0, 5), -5)
+        self.assertEqual(subtract(10, 10), 0)
 
-# << << << < HEAD
-
-
-######## Partner 1
-
-class TestMathFunctions(unittest.TestCase):
-
-    def test_multiply(self):  # 3 assertions
+    # Partner 1
+    def test_multiply(self):
         self.assertEqual(multiply(3, 4), 12)
         self.assertEqual(multiply(0, 100), 0)
         self.assertEqual(multiply(-2, 5), -10)
 
-    def test_divide(self):  # 3 assertions
-        self.assertEqual(divide(2, 10), 5)  # 10 / 2
-        self.assertEqual(divide(5, 0), 0)  # 0 / 5
+    def test_divide(self):
+        self.assertEqual(divide(10, 2), 5)
+        self.assertEqual(divide(0, 5), 0)
         with self.assertRaises(ZeroDivisionError):
-            divide(0, 10)
+            divide(5, 0)
 
-# == == == =
-
-def mul(a, b):
-    return a * b
-
-
-def div(a, b):
-    try:
-        if a == 0:
-            raise ZeroDivisionError("Cannot divide by zero.")
-        return b / a
-    except ZeroDivisionError as e:
-        print(f"Error in divide: {e}")
-        raise
-
-# ##########################
-# >> >> >> > dbbbb7ff8728499d086d65a0c210cf176b90042d
-
-
-######## Partner 2
-def test_divide_by_zero(a, b):
-    try:
-        if a == 0:
-            raise ZeroDivisionError("Cannot divide by zero.")
-        return b / a
-    except ZeroDivisionError as e:
-        print(f"Error in divide: {e}")
-    with self.assertRaises(ZerroDivisionError):
-        div(0, 5)
-
-
-def test_logarithm(a, b):
-    if a <= 0 or a == 1:
-        raise ValueError("Logarithm base must be positive and not equal to 1.")
-    if b <= 0:
-        raise ValueError("Logarithm argument must be positive.")
-    return math.log(b, a)
-
-
-def test_log_invalid_base(a, b):
-    try:
-        if a <= 0 or a == 1:
-            raise ValueError("Logarithm base must be positive and not equal to 1.")
-        if b <= 0:
-            raise ValueError("Logarithm argument must be positive.")
-        return math.log(b, a)
-    except ValueError as e:
-        print(f"Error in logarithm: {e}")
-        raise
-
-    ######## Partner 1
-
-
-class TestMathFunctions(unittest.TestCase):
-
-    def test_log_invalid_argument(self):
+    def test_logarithm(self):
+        self.assertTrue(math.isclose(logarithm(10, 1000), 3))
         with self.assertRaises(ValueError):
-            logarithm(0, 5)
+            logarithm(1, 100)  # base = 1 not allowed
+        with self.assertRaises(ValueError):
+            logarithm(-2, 100)
+        with self.assertRaises(ValueError):
+            logarithm(2, -100)
 
     def test_hypotenuse(self):
         self.assertEqual(hypotenuse(3, 4), 5)
         self.assertEqual(hypotenuse(0, 0), 0)
-        from math import isclose
-        self.assertTrue(isclose(hypotenuse(-5, 12), 13))
+        self.assertTrue(math.isclose(hypotenuse(-5, 12), 13))
 
-    def test_sqrt(self):
+    def test_square_root(self):
+        self.assertEqual(square_root(0), 0)
+        self.assertTrue(math.isclose(square_root(9), 3))
         with self.assertRaises(ValueError):
             square_root(-4)
 
-        self.assertEqual(square_root(0), 0)
-        from math import isclose
-        self.assertTrue(isclose(square_root(9), 3))
 
 
-# Do not touch this
 if __name__ == "__main__":
     unittest.main()
