@@ -9,15 +9,6 @@ One function per operation, in order.
 # First example
 import math
 
-def logarithm(a, b):
-    if a <= 0 or a == 1:
-        raise ValueError("Logarithm base must be positive and not equal to 1.")
-    if b <= 0:
-        raise ValueError("Logarithm argument must be positive.")
-    return math.log(b, a)
-
-def exponent(a, b):
-    return a ** b
 def square_root(a):
     try:
         if a < 0:
