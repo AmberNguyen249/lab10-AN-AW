@@ -16,10 +16,10 @@ def divide(param, param1):
 class TestCalculator(unittest.TestCase):
     ######### Partner 2
 
-    def add(a, b):
+    def test_add(a, b):
         return a + b
 
-    def subtract(a, b):
+    def test_subtract(a, b):
         return a - b
     # ##########################
 
@@ -61,7 +61,7 @@ def div(a, b):
 
 
 ######## Partner 2
-def divide(a, b):
+def test_divide_by_zero(a, b):
     try:
         if a == 0:
             raise ZeroDivisionError("Cannot divide by zero.")
@@ -72,7 +72,7 @@ def divide(a, b):
         div(0, 5)
 
 
-def logarithm(a, b):
+def test_logarithm(a, b):
     if a <= 0 or a == 1:
         raise ValueError("Logarithm base must be positive and not equal to 1.")
     if b <= 0:
@@ -80,7 +80,7 @@ def logarithm(a, b):
     return math.log(b, a)
 
 
-def logarithm(a, b):
+def test_log_invalid_base(a, b):
     try:
         if a <= 0 or a == 1:
             raise ValueError("Logarithm base must be positive and not equal to 1.")
