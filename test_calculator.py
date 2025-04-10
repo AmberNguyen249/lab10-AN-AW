@@ -34,22 +34,29 @@ class TestCalculator(unittest.TestCase):
     # ##########################
     
     ######## Partner 1
-    # def test_log_invalid_argument(self): # 1 assertion
-    #     # call log function inside, example:
-    #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
-    #     #     logarithm(0, 5)
-    #     fill in code
+    import unittest
 
-    # def test_hypotenuse(self): # 3 assertions
-    #     fill in code
 
-    # def test_sqrt(self): # 3 assertions
-    #     # Test for invalid argument, example:
-    #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
-    #     #    square_root(NUM)
-    #     # Test basic function
-    #     fill in code
-    ##########################
+    class TestMathFunctions(unittest.TestCase):
+
+        def test_log_invalid_argument(self):  # 1 assertion
+            with self.assertRaises(ValueError):
+                logarithm(0, 5)  # Invalid base
+
+        def test_hypotenuse(self):  # 3 assertions
+            self.assertEqual(hypotenuse(3, 4), 5)
+            self.assertEqual(hypotenuse(0, 0), 0)
+            from math import isclose
+            self.assertTrue(isclose(hypotenuse(-5, 12), 13))
+
+        def test_sqrt(self):  # 3 assertions
+            with self.assertRaises(ValueError):
+                square_root(-4)  # Invalid input
+
+            self.assertEqual(square_root(0), 0)
+            from math import isclose
+            self.assertTrue(isclose(square_root(9), 3))
+
 
 # Do not touch this
 if __name__ == "__main__":
