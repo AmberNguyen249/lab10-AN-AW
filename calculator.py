@@ -1,5 +1,7 @@
-"""
-calculator.py
+#https://github.com/AmberNguyen249/lab10-AN-AW.git
+#Partner 1:Amber Nguyen
+#Partner 2:Aster Wang
+"""calculator.py
 - Defines functions used to create a simple calculator
 
 One function per operation, in order.
