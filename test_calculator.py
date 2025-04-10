@@ -39,17 +39,17 @@ class TestCalculator(unittest.TestCase):
 
     class TestMathFunctions(unittest.TestCase):
 
-        def test_log_invalid_argument(self):  # 1 assertion
+        def test_log_invalid_argument(self):
             with self.assertRaises(ValueError):
                 logarithm(0, 5)  # Invalid base
 
-        def test_hypotenuse(self):  # 3 assertions
+        def test_hypotenuse(self):
             self.assertEqual(hypotenuse(3, 4), 5)
             self.assertEqual(hypotenuse(0, 0), 0)
             from math import isclose
             self.assertTrue(isclose(hypotenuse(-5, 12), 13))
 
-        def test_sqrt(self):  # 3 assertions
+        def test_sqrt(self):
             with self.assertRaises(ValueError):
                 square_root(-4)  # Invalid input
 
