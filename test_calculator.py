@@ -1,3 +1,7 @@
+#https://github.com/AmberNguyen249/lab10-AN-AW.git
+#Partner 1:Amber Nguyen
+#Partner 2:Aster Wang
+
 import unittest
 import math
 
