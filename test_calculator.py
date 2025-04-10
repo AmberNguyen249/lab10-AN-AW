@@ -88,7 +88,21 @@ class TestCalculator(unittest.TestCase):
         self.assertTrue(math.isclose(square_root(9), 3))
         with self.assertRaises(ValueError):
             square_root(-4)
-
+            
+    def test_divide_by_zero(self):
+        self.assertEqual(divide(10, 2), 5)
+        self.assertEqual(divide(0, 5), 0)
+        with self.assertRaises(ZeroDivisionError):
+            divide(5, 0)
+    def test_log_invalid_base(self):
+         self.assertTrue(math.isclose(logarithm(10, 1000), 3))
+        with self.assertRaises(ValueError):
+            logarithm(1, 100)
+        with self.assertRaises(ValueError):
+            logarithm(-2, 100)
+        with self.assertRaises(ValueError):
+            logarithm(2, -100)
+    
 
 
 if __name__ == "__main__":
