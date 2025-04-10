@@ -94,14 +94,15 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(divide(0, 5), 0)
         with self.assertRaises(ZeroDivisionError):
             divide(5, 0)
+            
     def test_log_invalid_base(self):
          self.assertTrue(math.isclose(logarithm(10, 1000), 3))
-        with self.assertRaises(ValueError):
-            logarithm(1, 100)
-        with self.assertRaises(ValueError):
-            logarithm(-2, 100)
-        with self.assertRaises(ValueError):
-            logarithm(2, -100)
+            with self.assertRaises(ValueError):
+                logarithm(1, 100)
+            with self.assertRaises(ValueError):
+                logarithm(-2, 100)
+            with self.assertRaises(ValueError):
+                logarithm(2, -100)
     
 
 
